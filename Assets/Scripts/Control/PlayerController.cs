@@ -77,6 +77,7 @@ namespace Control
                     if (rayCastable.HandleRaycast(this))
                     {
                         SetCoursor(rayCastable.GetCursorType());
+                        print(hit.transform.name);
                         return true;
                     }
                 }
@@ -87,7 +88,7 @@ namespace Control
 
         RaycastHit[] RaycastAllSorted()
         {
-            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(),rayCastRadious);
+            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), rayCastRadious);
             float[] distances = new float[hits.Length];
             for (int i = 0; i < hits.Length; i++)
             {
@@ -115,6 +116,7 @@ namespace Control
                 }
 
                 SetCoursor(CursorType.Movement);
+                print("hit");
                 return true;
             }
 
