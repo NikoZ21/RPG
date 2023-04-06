@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3869186731606524438, guid: 14cb0aaaebc6be54aa87b0a9c7a9ce22, type: 3}
+      propertyPath: maxNavmeshLength
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5590423885173457752, guid: 14cb0aaaebc6be54aa87b0a9c7a9ce22, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -269,7 +273,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -293,7 +297,7 @@ MonoBehaviour:
   dwellTime: 4
   patrolSpeed: 3
   chaseSpeed: 8
-  shoutDistance: 3
+  shoutDistance: 6
 --- !u!114 &-2193685315091200174
 MonoBehaviour:
   m_ObjectHideFlags: 0

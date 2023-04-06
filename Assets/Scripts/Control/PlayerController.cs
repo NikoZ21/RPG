@@ -77,7 +77,7 @@ namespace Control
                     if (rayCastable.HandleRaycast(this))
                     {
                         SetCoursor(rayCastable.GetCursorType());
-                        print(hit.transform.name);
+
                         return true;
                     }
                 }
@@ -116,7 +116,6 @@ namespace Control
                 }
 
                 SetCoursor(CursorType.Movement);
-                print("hit");
                 return true;
             }
 

@@ -144,8 +144,8 @@ namespace Combat
         public bool CanAttack(GameObject combatTarget)
         {
             if (!combatTarget) return false;
-            if (!_mover.CanMoveTo(combatTarget.transform.position) && !GetIsInRange(combatTarget.transform))
-                return false;
+            if (!_mover.CanMoveTo(combatTarget.transform.position) && !GetIsInRange(combatTarget.transform)) return false;
+
             var health = combatTarget.GetComponent<Health>();
             return !health || !health.IsDead;
         }

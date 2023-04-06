@@ -45,9 +45,13 @@ namespace Movement
         {
             NavMeshPath path = new NavMeshPath();
             var hasPath = NavMesh.CalculatePath(transform.position, destination, NavMesh.AllAreas, path);
+
             if (!hasPath) return false;
+
             if (path.status != NavMeshPathStatus.PathComplete) return false;
+
             if (GetPathLength(path) > maxNavmeshLength) return false;
+
             return true;
         }
 

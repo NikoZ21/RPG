@@ -17,6 +17,7 @@ namespace Control
 {
     public class AIController : MonoBehaviour
     {
+        [SerializeField] private bool isGizmosToggled = false;
         [SerializeField] private float chaseDistance = 5f;
         [SerializeField] private float suspiciousTime = 3f;
         [SerializeField] private float agrooCooldownTime = 3f;
@@ -114,11 +115,12 @@ namespace Control
         private void AggrevaiteNearByEnemies()
         {
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
+
             foreach (var hit in hits)
             {
                 var enemy = hit.transform.GetComponent<AIController>();
+                if (!enemy) continue;
 
-                if (!enemy) return;
                 enemy.Aggrevate();
             }
         }
@@ -170,9 +172,12 @@ namespace Control
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, chaseDistance);
-            Gizmos.DrawWireSphere(transform.position + Vector3.up*1f,shoutDistance);
+            if (isGizmosToggled)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawWireSphere(transform.position, chaseDistance);
+                Gizmos.DrawWireSphere(transform.position + Vector3.up * 1f, shoutDistance);
+            }
         }
 
         private void SetSpeed(float speed)
@@ -185,7 +190,5 @@ namespace Control
             SetSpeed(chaseSpeed);
             timeSinceAggrevated = 0;
         }
-
-
     }
 }
